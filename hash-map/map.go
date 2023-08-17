@@ -1,17 +1,16 @@
 package hashmap
 
-// func Mapping() {
+func Mapping() {
 
-// 	mapp := make(map[string]int)
+	mapp := make(map[string]int)
 
-// 	for i := 'a'; i < 'j'; i++ {
-// 		mapp[string(i)]++
-// 	}
+	for i := 'a'; i < 'j'; i++ {
+		mapp[string(i)]++
+	}
 
-// 	// fmt.Println(mapp)
+	// fmt.Println(mapp)
 
-// 	for k, v := range mapp {
+	// for k, v := range mapp {
 
-// 	}
-
-// }
+	// }
+}

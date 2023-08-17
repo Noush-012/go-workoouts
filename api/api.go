@@ -16,12 +16,15 @@ import (
 
 // then aggregate both details and stored to 3rd api
 type Employee struct {
+	ID    int    `json:"id" binding:"ommitempty"`
 	Name  string `json:"name" binding:"required,string"`
 	Age   int    `json:"age" binding:"required,numeric"`
 	Email string `json:"email" binding:"ommitempty"`
+	// OrgID int    `json:"orgid" binding:"ommitempty"`
 }
 
 type Employer struct {
+	OrgID    int    `json:"orgid" binding:"ommitempty"`
 	Org      string `json:"org" binding:"required,string"`
 	Location string `json:"location" binding:"required,string"`
 }
@@ -90,6 +93,42 @@ func GetAllCarMakes() (Employee, error) {
 
 }
 
+func CallEmployeeDetails(id string) (Employee, error) {
+
+	url := fmt.Sprintf("api/v1/employee/%s", id)
+
+	req, err := http.NewRequest("GET", url, nil)
+
+	if err != nil {
+		fmt.Println(err)
+		return Employee{}, err
+	}
+
+	client := &http.Client{}
+
+	resp, err := client.Do(req)
+
+	if err != nil {
+		fmt.Println(err)
+		return Employee{}, err
+	}
+	response, err := io.ReadAll(resp.Body)
+
+	if err != nil {
+		fmt.Println(err)
+		return Employee{}, err
+	}
+	fmt.Println(response)
+	// binding json to struct
+	var data Employee
+
+	err = json.Unmarshal(response, &data)
+	if err != nil {
+		return Employee{}, err
+	}
+	return data, nil
+}
+
 func CallEmployerDetails(id string) (Employer, error) {
 
 	url := fmt.Sprintf("api/v1/employer/%s", id)
@@ -122,7 +161,7 @@ func CallEmployerDetails(id string) (Employer, error) {
 	if err != nil {
 		return Employer{}, err
 	}
-	return Employer{}, nil
+	return data, nil
 }
 
 // func SaveData(data Data) error {
@@ -146,4 +185,16 @@ func CallEmployerDetails(id string) (Employer, error) {
 
 // 	fmt.Println(resp)
 
+// }
+
+// type Emoployee struct {
+// 	Name  string
+// 	Age   int
+// 	EmpID int
+// }
+
+// type Employer struct {
+// 	ID       int
+// 	ORG      string
+// 	Location string
 // }

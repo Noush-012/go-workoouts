@@ -3,13 +3,12 @@ package main
 import (
 	"fmt"
 	"runtime"
+	"sammple/integer"
 )
 
 //           ----------           To Do              ------------                         //
 
-// 1. Type Assertion interface
-// 2. Struct composition
-// 3. Sorting
+// Linked list find cyclic
 
 func main() {
 	// fmt.Println("List 1")
@@ -48,9 +47,47 @@ func main() {
 	// arr := []int{2, 6, 89, 8, -8, 7, 6, 9, 25, 1, 3}
 	// sort.Ints(arr)
 	// fmt.Println(arr)
-	fib := FibClosure()
+	// fib := FibClosure()
+	// for i := 0; i < 10; i++ {
+	// 	fmt.Println(fib())
+	// }
+
+	// id := "123"
+
+	// employeeData, _ := api.CallEmployeeDetails(id)
+	// emplyrData, _ := api.CallEmployerDetails(id)
+
+	// final := api.Data{
+	// 	Employee: employeeData,
+	// 	Employer: emplyrData,
+	// }
+
+	// fmt.Println(final)
+
+	// api.GetAllCarMakes()
+	//str := "Nou sha                             d"
+
+	//res := strings.ReplaceAll(str, " ", "")
+	//res := strings.TrimSpace(str)
+
+	//for i := len(str) - 1; i >= 0; i-- {
+
+	//res += string(str[i])
+
+	//}
+	//fmt.Println(res)
+
+	// var a interface{} = 10
+	// fmt.Println(a)
+	// b := reflect.Int
+	// fmt.Println(b)
+
+	// a = b
+	// fmt.Println(a)
+
+	// fmt.Println(reflect.DeepEqual(b, a))
 	for i := 0; i < 10; i++ {
-		fmt.Println(fib())
+		fmt.Println(integer.FibonacciR(i))
 	}
 
 }

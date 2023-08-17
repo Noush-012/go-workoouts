@@ -46,3 +46,11 @@ func AddToListWithSingleDigitOutPut(list1, list2 *list.List) *list.List {
 	}
 	return Reslist
 }
+
+// func IsCyclicList(list list.List) bool {
+// 	currentNode := list.Front()
+
+// 	for i != nil {
+
+// 	}
+// }
