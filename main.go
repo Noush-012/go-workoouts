@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"runtime"
-	"sammple/integer"
 )
 
 //           ----------           To Do              ------------                         //
@@ -86,9 +85,9 @@ func main() {
 	// fmt.Println(a)
 
 	// fmt.Println(reflect.DeepEqual(b, a))
-	for i := 0; i < 10; i++ {
-		fmt.Println(integer.FibonacciR(i))
-	}
+	// for i := 0; i < 10; i++ {
+	// 	fmt.Println(integer.FibonacciR(i))
+	// }
 
 }
 
